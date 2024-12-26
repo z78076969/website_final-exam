@@ -1,0 +1,90 @@
+
+
+
+
+    /* 右側文字區域 */
+.text-area {
+    width: 25%; /* 右側文字區域寬度為 25% */
+    display: flex;
+    align-items: center; /* 垂直置中 */
+    justify-content: flex-end; /* 文字區域的內容向右對齊 */
+    padding-right: 40px; /* 右側距離，可以根據需要調整 */
+}
+
+/* 直式文字樣式 */
+.vertical-text {
+    writing-mode: vertical-rl; /* 垂直書寫方向：從右往左 */
+    text-orientation: upright; /* 保持字體直立 */
+    font-family: 'Noto Serif JP', serif; /* 設置為 Noto Serif JP 襯線字型 */
+    font-size: 60px; /* 字體大小 */
+    font-weight: bold; /* 粗體 */
+    color: #666666bd; /* 字體顏色 */
+    line-height: 1.5; /* 增加行距 */
+    text-align: center;
+}
+
+
+
+.small-text {
+    font-size: 30px; /* 設定較小的字體大小 */
+    font-family: Sans-serif; 
+    color: #666666; /* 可選：設置字體顏色 */
+    text-align: center;
+}
+
+
+.down-move {
+    margin-top: 10px; /* 設置上邊距，讓文字下移 */
+    font-family: Sans-serif; 
+    font-size: 30px; /* 可以調整字體大小 */
+    color: #666666; /* 設置字體顏色 */
+}
+
+.carousel-wrapper {
+    width: 50%; /* 寬度設定為螢幕的 1/4 */
+    margin-left: 15%; /* 從左側留 5% 的間距 */
+}
+
+.carousel-inner img {
+    height: 1080px; /* 設定固定高度，例如 300px */
+    object-fit: cover; /* 確保圖片不變形並填滿 */
+}
+
+.menu-title {
+    font-family: 'Noto Serif JP', serif; /* 使用襯線字體 */
+    font-size: 42px; /* 字體大小 */
+    font-weight: bold; /* 粗體字 */
+    color: rgb(167, 149, 52); /* 設置文字顏色  */
+    margin-bottom: 20px; /* 調整下方間距 */
+}
+
+.concept-title {
+    font-family: 'Noto Serif JP', serif; /* 使用襯線字體 */
+    font-size: 42px; /* 字體大小 */
+    font-weight: bold; /* 粗體字 */
+    color: rgb(167, 149, 52); /* 設置文字顏色  */
+    margin-bottom: 20px; /* 調整下方間距 */
+    text-align: center; 
+}
+
+
+.concept-text{
+      font-family: Sans-serif; 
+    font-size: 25px; /* 內文字體大小 */
+    line-height: 1.8; /* 行距 */
+    color: #333; /* 深色文字 */
+    text-align: center; 
+}
+
+
+
+
+
+body {
+    background-color: rgb(233, 233, 221);
+  }
+
+footer {
+    font-size: 0.9rem;
+    background-color: rgb(233, 233, 221);
+}
