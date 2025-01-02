@@ -69,11 +69,12 @@
 
 
 .concept-text{
-      font-family: Sans-serif; 
+    font-family: Sans-serif; 
     font-size: 25px; /* 內文字體大小 */
     line-height: 1.8; /* 行距 */
     color: #333; /* 深色文字 */
     text-align: center; 
+    
 }
 
 

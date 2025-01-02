@@ -1,18 +1,27 @@
 body {
-    background-color: rgb(240, 232, 199);
+  background-color: rgb(223, 223, 221);
+}
 
+.category-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center; /* 標題置中 */
+}
 
+.menu-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 讓圖片居中對齊 */
+}
 
-  }
-  
-    
-  .menu-item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .category-title {
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
+.menu-item {
+  width: 400px; /* 固定寬度 */
+  margin: 10px; /* 圖片之間的間距 */
+  text-align: center; /* 讓文字置中 */
+}
+
+.menu-item img {
+  width: 350px; 
+  height: 350px; 
+  margin-bottom: 10px;
+}
