@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="menu_header.js"></script>
     <link rel="stylesheet" href="css/menu.css">
 
     <title>食の初炸蛋雞魯專賣店</title>
@@ -14,7 +17,7 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+  <!-- <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="images/LOGO2.png" alt="Logo" style="width: 400px;">
@@ -40,21 +43,89 @@
         </ul>
       </li>
     </div>
-  </nav>
+  </nav> -->
+
+<!-- 第一層固定導覽列 -->
+<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="images/LOGO2.png" alt="Logo" style="width: 400px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu.html">菜單介紹</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="QA.html">常見問題</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- 第二層導覽列 -->
+<nav class="menunavbar navbar-expand-sm">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#mainDishes">
+        <img src="images/主食icon.png" alt="主餐圖標">
+        <span>主餐</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#soupDishes">
+        <img src="images/湯品icon.png" alt="湯品圖標">
+        <span>湯品</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#sideDishes">
+          <img src="images/小菜icon.png" alt="小菜圖標">
+          <span>小菜</span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#drinksDishes">
+          <img src="images/飲料icon.png" alt="飲品圖標">
+          <span>飲品</span>
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
 
     <div id="app">
       <navbar></navbar>
       
       <div class="container mt-5">
+        <section id="mainDishes">
         <h2 class="category-title">主食</h2>
         <menu-category :items="mainDishes"></menu-category>
-  
-        <h2 class="category-title">無蛋飯</h2>
-        <menu-category :items="noEggDishes"></menu-category>
-  
+        </section>
+        <section id="soupDishes">
+        <h2 class="category-title">湯品</h2>
+        <menu-category :items="soupDishes"></menu-category>
+        </section>
+        <section id="sideDishes">
         <h2 class="category-title">小菜</h2>
         <menu-category :items="sideDishes"></menu-category>
+        </section>
+        <section id="drinksDishes">
+        <h2 class="category-title">飲品</h2>
+        <menu-category :items="drinksDishes"></menu-category>
+        </section>
       </div>
   
       <footer-section></footer-section>
@@ -66,46 +137,103 @@
 
 
       const app = Vue.createApp({
-        data() {
-          return {
-            mainDishes: [
-              { id: 1, name: "招牌炸蛋蔥油雞肉飯", price: "大份NT$70/小份NT$60", img: "images/雞肉飯.png" },
-              { id: 2, name: "炸蛋椒麻滷肉飯", price: "大份NT$60/小份NT$50", img: "images/滷肉飯.png" },
-              { id: 3, name: "炸蛋秘香肉燥飯", price: "大份NT$60/小份NT$50", img: "images/大燥.jpg" },
-            ],
-            noEggDishes: [
-              { id: 1, name: "熬煉蔥油雞肉飯", price: "大份NT$55/小份NT$45", img: "images/無蛋雞.jpg" },
-              { id: 2, name: "椒麻滷肉飯", price: "大份NT$45/小份NT$35", img: "images/無蛋魯.jpg" },
-              { id: 3, name: "秘香肉燥飯", price: "大份NT$45/小份NT$35", img: "https://via.placeholder.com/300x200" },
-            ],
-            sideDishes: [
-              { id: 1, name: "皮蛋豆腐", price: "NT$35", img: "images/皮蛋豆腐.png" },
-              { id: 2, name: "胡麻翠玉豆腐", price: "NT$40", img: "https://via.placeholder.com/300x200" },
-              { id: 3, name: "半熟鴨蛋", price: "NT$25", img: "images/炸蛋.png" },
-            ],
-          };
-        },
-      });
-  
-      app.component('menu-category', {
-        props: ['items'],
-        template: `
-          <div class="menu-category">
-            <div class="menu-item" v-for="item in items" :key="item.id">
-              <img :src="item.img" :alt="item.name">
-              <h3>{{ item.name }}</h3>
-              <p>{{ item.price }}</p>
-            </div>
-          </div>
-        `
-      });
-  
-      
-      app.component('footer-section', {
-        template: `<footer>這裡是頁腳</footer>`
-      });
-  
-      app.mount('#app');
-  </script>
+  data() {
+    return {
+      mainDishes: [
+        { id: 1, name: "招牌炸蛋蔥油雞肉飯", price: "大份NT$70/小份NT$60", img: "images/雞肉飯.png" },
+        { id: 2, name: "炸蛋椒麻滷肉飯", price: "大份NT$60/小份NT$50", img: "images/滷肉飯.png" },
+        { id: 3, name: "炸蛋秘香肉燥飯", price: "大份NT$60/小份NT$50", img: "images/肉燥飯.png" },
+        { id: 4, name: "炸蛋秘香肉燥飯", price: "大份NT$60/小份NT$50", img: "images/雞滷飯.png" },
+        { id: 5, name: "炸蛋秘香肉燥飯", price: "大份NT$60/小份NT$50", img: "images/椒麻雞.png" },
+      ],
+      soupDishes: [
+        { id: 1, name: "慢燉蘿蔔貢丸湯", price: "NT$35", img: "images/蘿蔔貢丸湯.png" },
+        { id: 2, name: "蘿蔔湯", price: "NT$40", img: "images/蘿蔔湯.png" },
+        { id: 3, name: "貢丸湯", price: "NT$25", img: "images/貢丸湯.png" }
+    ],
+      sideDishes: [
+        { id: 1, name: "皮蛋豆腐", price: "NT$35", img: "images/皮蛋豆腐.png" },
+        { id: 2, name: "木耳", price: "NT$40", img: "images/木耳.png" },
+        { id: 3, name: "半熟鴨蛋", price: "NT$25", img: "images/炸蛋.png" },
+      ],
+      drinksDishes: [
+        { id: 1, name: "香檳葡萄飲", price: "大份NT$55/小份NT$45", img: "images/葡萄.png" },
+        { id: 2, name: "冬瓜檸檬飲", price: "大份NT$45/小份NT$35", img: "images/冬瓜檸檬.png" },
+        { id: 3, name: "柳橙果露飲", price: "大份NT$45/小份NT$35", img: "images/柳橙.png" },
+      ],
+    };
+  },
+  mounted() {
+    // 初始化滾動觸發效果
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set(".box", { y: 100, opacity: 0 });
+
+    ScrollTrigger.batch(".box", {
+      interval: 0.1, // 動畫批次的時間間隔
+      batchMax: 3,   // 每批動畫的最大數量
+      onEnter: (batch) =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15 }, overwrite: true }),
+      onLeave: (batch) =>
+        gsap.to(batch, { opacity: 0, y: -100, overwrite: true }),
+      onEnterBack: (batch) =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15 }, overwrite: true }),
+      onLeaveBack: (batch) =>
+        gsap.to(batch, { opacity: 0, y: 100, overwrite: true }),
+      start: "20px bottom",
+      end: "top top",
+    });
+
+    ScrollTrigger.addEventListener("refreshInit", () =>
+      gsap.set(".box", { y: 0 })
+    );
+  },
+});
+
+
+app.component('menu-category', {
+  props: ['items'],
+  template: `
+    <div class="menu-category">
+      <div class="menu-item box" v-for="item in items" :key="item.id">
+        <img :src="item.img" :alt="item.name">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.price }}</p>
+      </div>
+    </div>
+  `
+});
+
+
+app.component('footer-section', {
+    template: `
+    <footer class=" text-center text-lg-start mt-5">
+<div class="container p-4">
+  <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4">
+          <h5>聯絡資訊</h5>
+          <p>地址：臺中市北區三民路三段126巷3號1F</p>
+          <p>營業時間：每天上午11:30至晚上7:00</p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4">
+          <h5>社群媒體</h5>
+          <a href="#" class="me-3">Facebook</a>
+          <a href="#" class="me-3">Instagram</a>
+          <a href="#">Twitter</a>
+      </div>
+  </div>
+</div>
+<div class="text-center p-3 bg-dark text-white">
+  © 2024 食の初炸蛋雞魯專賣店
+</div>
+</footer>
+    `
+  });
+
+  app.mount('#app');
+
+
+</script>
+
   </body>
 </html>

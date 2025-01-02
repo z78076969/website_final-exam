@@ -27,18 +27,13 @@
 
 .small-text {
     font-size: 30px; /* 設定較小的字體大小 */
-    font-family: Sans-serif; 
+    font-family: 'Noto Serif JP', serif; 
     color: #666666; /* 可選：設置字體顏色 */
-    text-align: center;
+    text-align: top;
 }
 
 
-.down-move {
-    margin-top: 10px; /* 設置上邊距，讓文字下移 */
-    font-family: Sans-serif; 
-    font-size: 30px; /* 可以調整字體大小 */
-    color: #666666; /* 設置字體顏色 */
-}
+
 
 .carousel-wrapper {
     width: 50%; /* 寬度設定為螢幕的 1/4 */

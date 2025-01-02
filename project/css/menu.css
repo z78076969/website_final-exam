@@ -1,30 +1,81 @@
 body {
   background-color: rgb(233, 233, 221);
+  padding-top: 100px; /* 確保內容不被兩層導航列遮擋 (兩層導覽列高度之和) */
 }
 
+
+.menunavbar {
+  background-color: #928644; /* 背景顏色*/
+  padding: 10px 0; /* 導覽列上下內距 */
+}
+.menunavbar .container-fluid {
+  display: flex; /* 讓子項目水平排列 */
+  justify-content: center; /* 內容居中 */
+  align-items: center; /* 垂直對齊居中 */
+}
+
+.menunavbar .navbar-nav {
+  display: flex; /* 水平排列列表 */
+  gap: 80px; /* 每個項目之間的間距，這裡改為 80px */
+  list-style: none; /* 移除預設的圓點 */
+  padding: 20px;
+  margin: 0;
+}
+
+.menunavbar .nav-link {
+  display: flex;
+  flex-direction: column; /* 圖片和文字垂直排列 */
+  align-items: center; /* 水平居中 */
+  color: #fff; /* 文字顏色 */
+  text-decoration: none; /* 移除下劃線 */
+  font-size: 18px; /* 文字大小 */
+  padding: 5px 10px; /* 點擊區域 */
+}
+
+.menunavbar .nav-link img {
+  width: 30px; /* 圖標大小 */
+  height: auto; /* 等比縮放 */
+  margin-bottom: 5px; /* 圖標和文字間距 */
+}
+
+
+.menunavbar .nav-link:hover {
+  color: #ffc107; /* 滑鼠懸停時改變顏色 */
+}
+
+
+
 .category-title {
+  font-family: 'Noto Serif JP', serif; /* 使用襯線字體 */
+  font-size: 42px; /* 字體大小 */
+  font-weight: bold; /* 粗體字 */
+  color: rgb(167, 149, 52); /* 設置文字顏色  */
   margin-top: 40px;
   margin-bottom: 20px;
   text-align: center; /* 標題置中 */
-  padding: 200px;
+  padding: 150px;
 }
 
 .menu-category {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* 讓圖片居中對齊 */
-  
+  gap: 16px;
 }
 
 .menu-item {
-  width: 400px; /* 固定寬度 */
-  margin: 10px; /* 圖片之間的間距 */
-  text-align: center; /* 讓文字置中 */
+  width: calc(33.33% - 16px);
+  text-align: center;
+  opacity: 0; /* 起始狀態：透明 */
+  transform: translateY(100px); /* 起始狀態：向下偏移 */
+  transition: all 0.3s ease;
 }
 
 .menu-item img {
-  width: 350px; 
-  height: 350px; 
-  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
 }
+
+
 
