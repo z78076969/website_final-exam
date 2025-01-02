@@ -48,6 +48,7 @@
 .carousel-inner img {
     height: 1080px; /* 設定固定高度，例如 300px */
     object-fit: cover; /* 確保圖片不變形並填滿 */
+    
 }
 
 .menu-title {
@@ -87,5 +88,5 @@ body {
 
 footer {
     font-size: 0.9rem;
-    background-color: rgb(233, 233, 221);
+    background-color: rgb(121, 121, 111);
 }
